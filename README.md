@@ -2,9 +2,10 @@
 
 Web for 2020 NCU ADL CTF
 
-# Initial Setup
+# Setup
 
-Use the command `sudo docker build .` to build the template docker image for ctf container.
+- Run `sudo docker build -t ctf .` to build the docker image template "ctf".
+- Run `sudo ./setup_all_container.sh up` to bring the challenges online.
 
  
 # Problem Set
