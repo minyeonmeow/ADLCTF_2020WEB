@@ -35,7 +35,7 @@
     <div class="text-center d-flex justify-content-center flex-column" style="height: 100vh">
         <h1 class="rainbow" style="font-size: 5rem;">Login Success!</h2>
         <p style="font-size: 3em;">
-            Flag 1: adlctf{51mpl3_5ql_1nj3c710n} <br>
+            Flag 1: ADLCTF{51mpl3_5ql_1nj3c710n} <br>
             Flag 2 is in the db, try to find it.
         </p>
     </div>

@@ -2,8 +2,10 @@
 function hide($flag) {
     return base64_encode($flag);
 }
-$flag = "adlctf{h3ll0_pika_c00k13}";
+
+$flag = "ADLCTF{h3ll0_pika_c00k13}";
 setrawcookie('flags', hide($flag), time() + 30, "", "", FALSE, TRUE);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +18,7 @@ setrawcookie('flags', hide($flag), time() + 30, "", "", FALSE, TRUE);
     <link href="css/rainbow.css" rel="stylesheet">
 </head>
 <body>
-    <!--This is just garbled text, never mind. YWRsY3Rme2gzbGwwX3AxazRfdzNiNTE3M30= -->
+    <!--This is just garbled text, never mind. QURMQ1RGe2gzbGwwX3AxazRfdzNiNTE3MzN9Cg== -->
     <div class="text-center d-flex justify-content-center flex-column" style="height: 100vh">
         <h1><img src="./pika.jpg" width="600"></img></h1>
         <p style="font-size: 3em;">

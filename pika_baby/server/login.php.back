@@ -1,5 +1,5 @@
 <?php
-    $flag = "adlctf{pika_pika_pikachu}";
+    $flag = "ADLCTF{pika_pika_pikachu}";
     $user = $_GET['user'];
     $pass = $_GET['pass'];
     if (!isset($user) || !isset($pass)) {

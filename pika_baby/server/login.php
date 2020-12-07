@@ -1,5 +1,5 @@
 <?php
-    $flag = "adlctf{md55um_l0053_c0mp4r150n5}";
+    $flag = "ADLCTF{md55um_l0053_c0mp4r150n5}";
     $user = $_GET['user'];
     $pass = $_GET['pass'];
     if (!isset($user) || !isset($pass)) {
