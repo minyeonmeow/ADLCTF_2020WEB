@@ -16,15 +16,16 @@ setrawcookie('flags', hide($flag), time() + 30, "", "", FALSE, TRUE);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rainbow.css" rel="stylesheet">
+    <!-- T3BwcyB5b3UgZm91bmQgbWUuIE5pY2UgdHJ5IQo= -->
 </head>
 <body>
-    <!--This is just garbled text, never mind. QURMQ1RGe2gzbGwwX3AxazRfdzNiNTE3MzN9Cg== -->
     <div class="text-center d-flex justify-content-center flex-column" style="height: 100vh">
-        <h1><img src="./pika.jpg" width="600"></img></h1>
+        <h1><img src="./pika.jpg" width="600" alt="QURMQ1RGe3AxazRfdzB3X3VfQzROX3IzYURfd2U2X1NSYyF9Cg=="></img></h1>
         <p style="font-size: 3em;">
             Say hello to pikachu.<br>
             Pika Pika. 
         </p>
+        <span style="visibility:hidden">bmljZSB0cnkhCg==</span>
     </div>
     <script src="js/jquery-slim.min.js"></script>
     <script src="js/popper.min.js"></script>
