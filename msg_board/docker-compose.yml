@@ -1,0 +1,28 @@
+version: "2"
+services:
+    bot:
+        build: ./bot
+        volumes:
+            - ./bot/src:/home/bot
+        entrypoint: python3 ./bot.py
+        links:
+            - web
+    web:
+        build: ./server/web
+        ports: 
+            - "12005:80"
+        volumes:
+            - ./server/web/src:/var/www/html/
+        links:
+            - db
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_DATABASE: xss
+            MYSQL_ROOT_PASSWORD: FNzWc@v3a2bV@ps6
+        volumes:
+            - ./server/sql:/docker-entrypoint-initdb.d
+            - persistent:/var/lib/mysql
+volumes:
+    persistent:
+

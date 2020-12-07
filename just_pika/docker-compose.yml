@@ -1,0 +1,9 @@
+version: "3"
+services:
+    web:
+        container_name: just_pika
+        image: php:7.2-apache
+        ports: 
+            - "12003:80"
+        volumes:
+            - ./server:/var/www/html/

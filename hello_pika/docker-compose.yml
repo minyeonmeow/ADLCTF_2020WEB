@@ -1,0 +1,9 @@
+version: "3"
+services:
+    web:
+        container_name: hello_web
+        image: php:7.2-apache
+        ports: 
+            - "12001:80"
+        volumes:
+            - ./server:/var/www/html/
