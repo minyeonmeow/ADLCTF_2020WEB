@@ -9,12 +9,12 @@
     <link href="css/rainbow.css" rel="stylesheet">
 </head>
 <body>
-    <!-- There is no secret.php, pika.-->
     <div class="text-center d-flex justify-content-center flex-column" style="height: 100vh">
         <h1><img src="./img/pika_index.png" width="600"></img></h1>
         <p style="font-size: 3em;">
-            Pika Pika. 
+            Pika Pika.
         </p>
+        <!-- There are no secret files, pika. -->
     </div>
     <script src="js/jquery-slim.min.js"></script>
     <script src="js/popper.min.js"></script>
