@@ -9,40 +9,45 @@ Web for 2020 NCU ADL CTF
  
 # Problem Set
 ### hello_pika
-- description: html comment and http cookie
-- flag:
-    - ADLCTF{h3ll0_p1k4_w3b5173}
-    - ADLCTF{h3ll0_pika_c00k13}
-- points:
+- Author: genesis
+- Tricks: view html source, set-cookie and expiration
+- Flag:
+    - ADLCTF{p1k4_w0w_u_C4N_r3aD_we6_SRc!}
+    - ADLCTF{pika_u_f0und_4n_eXp12ED_c00k13!}
+- Points:
     - 50
     - 50
-- port: 12001
+- Port: 12001
 
 ### pika_baby
-- description: php == compare
-- flag: ADLCTF{md55um_l0053_c0mp4r150n5}
-- points: 100
-- port: 12002
+- Author: genesis
+- Tricks: php == compare
+- Flag: ADLCTF{md55um_l0053_c0mp4r150n5}
+- Points: 100
+- Port: 12002
 
 ### just_pika
-- description: php header change location, use curl to get index.php
-- flag: ADLCTF{br0w53r_d0_m4ny_7h1n65}
-- points: 100
-- port: 12003
+- Author: genesis
+- Tricks: php header change location, use curl to get index.php
+- Flag: ADLCTF{br0w53r_d0_m4ny_7h1n65}
+- Points: 100
+- Port: 12003
 
 ### pika_injection
-- description: SQL injection
-- flag:
+- Author: genesis
+- Tricks: SQL injection
+- Flag:
     - ADLCTF{51mpl3_5ql_1nj3c710n}
     - ADLCTF{IdNonMesFecGaxJacet9twetefCalNoa}
-- points: 
+- Points: 
     - 50
     - 100
-- port: 12004
+- Port: 12004
 
 ### msg_board
-- description: XSS
-- flag: ADLCTF{51mpl3_x55_4774ck}
-- points: 100
-- port: 12005
+- Author: genesis
+- Tricks: XSS
+- Flag: ADLCTF{51mpl3_x55_4774ck}
+- Points: 100
+- Port: 12005
 

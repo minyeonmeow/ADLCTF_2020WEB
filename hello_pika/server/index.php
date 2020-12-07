@@ -1,10 +1,14 @@
 <?php
+session_start();  // set PHPSESSID
+
 function hide($flag) {
     return base64_encode($flag);
 }
 
-$flag = "ADLCTF{h3ll0_pika_c00k13}";
-setrawcookie('flags', hide($flag), time() + 30, "", "", FALSE, TRUE);
+$fake_flag = "Almost there! Try with curl~";
+$flag = "ADLCTF{pika_u_f0und_4n_eXp12ED_c00k13!}";
+setrawcookie('flags', hide($fake_flag), time() + 30, "", "", FALSE, TRUE);
+setrawcookie('_flags', hide($flag), 1, "", "", FALSE, TRUE);  // expired
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +27,7 @@ setrawcookie('flags', hide($flag), time() + 30, "", "", FALSE, TRUE);
         <h1><img src="./pika.jpg" width="600" alt="QURMQ1RGe3AxazRfdzB3X3VfQzROX3IzYURfd2U2X1NSYyF9Cg=="></img></h1>
         <p style="font-size: 3em;">
             Say hello to pikachu.<br>
-            Pika Pika. 
+            Pika Pika.
         </p>
         <span style="visibility:hidden">bmljZSB0cnkhCg==</span>
     </div>
