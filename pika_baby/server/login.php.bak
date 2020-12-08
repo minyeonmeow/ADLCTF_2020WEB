@@ -1,11 +1,12 @@
 <?php
-    $flag = "ADLCTF{pika_pika_pikachu}";
+    $flag = "ADLCTF{????????}";  // TODO
     $user = $_GET['user'];
     $pass = $_GET['pass'];
+
     if (!isset($user) || !isset($pass)) {
-        header('Location', "./secret.html");
+        header("Location: /secret.php");
     } else {
-        if ($user == "pikachu" && md5($pass) == "0e481756596645574257920728035178") {
+        if (md5($pass) == "0e481756596645574257920728035178" && !strcmp($user, $flag)) {
             $text = $flag;
         } else {
             $text = "PIKA PIKA.";

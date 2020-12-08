@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Don't waste time using dirsearch, pika. -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>pika pika</title>
@@ -21,5 +22,3 @@
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

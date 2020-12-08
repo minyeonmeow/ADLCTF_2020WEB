@@ -7,10 +7,10 @@
     <title>PIKA PIKA</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="height: 100vh;">
-    <div class="text-center d-flex align-items-center justify-content-center" style="height: 100%">
-        <form class="form-signin" action="#">
-            <img class="mb-4" src="img/pika_login.jpg" alt="">
+<body>
+    <div class="text-center d-flex flex-column align-items-center justify-content-center">
+        <img class="mb-4" src="img/pika_login.jpg" style="max-height: 500px">
+        <form class="form-signin col-7" action="#">
             <h1 class="h3 mb-3 font-weight-normal">Please pika.</h1>
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>

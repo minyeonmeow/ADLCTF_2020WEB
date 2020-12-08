@@ -20,9 +20,9 @@ Web for 2020 NCU ADL CTF
 - Port: 12001
 
 ### pika_baby
-- Author: genesis
-- Tricks: php == compare
-- Flag: ADLCTF{md55um_l0053_c0mp4r150n5}
+- Author: genesis, davidhcefx
+- Tricks: php == compare, strcmp([])
+- Flag: ADLCTF{l0053_c0mp4r150n5_n_Nu11_4rr4y_php_15_A_cr42y_14n6ua6e}
 - Points: 100
 - Port: 12002
 
