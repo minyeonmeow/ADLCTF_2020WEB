@@ -1,21 +1,40 @@
 <?php
     require_once('php/config.php');
+    require_once('php/sqlmap_waf.php');
+
     $loginStatus = NULL;
-    $user = NULL;
-    if (isset($_POST['ctf_username']) && isset($_POST['ctf_password'])) {
-        $username = $_POST['ctf_username'];
-        $password = $_POST['ctf_password'];
-        $sql = "SELECT * FROM users WHERE `username` = '$username' & `password` = '$password';";
-        $stat = $db->query($sql);
-        if ($stat === False) {
-            print_r($db->errorInfo());
-            die();
-        } else if (count($stat->fetchAll()) > 0) {
-            $loginStatus = True;
-        } else {
-            $loginStatus = False;
+    $account = NULL;
+    $wafPassed = True;
+    $username = $_POST['ctf_username'];
+    $password = $_POST['ctf_password'];
+    $ip = get_ip_address();
+
+    if (isset($username) && isset($password)) {
+        if (!sqlmap_waf($username) || !sqlmap_waf($password)) {
+            $wafPassed = False;
+            ban_ip($ban_db, $ip);
         }
-    } 
+        if ($wafPassed && check_if_banned($ban_db, $ip)) {
+            $wafPassed = False;
+        }
+        if ($wafPassed) {
+            // try to login
+            $sql = "SELECT * FROM users WHERE `username` = '$username' AND `password` = '$password';";
+            $stmt = $user_db->query($sql);
+
+            if ($stmt === False) {
+                print_r($user_db->errorInfo());
+                die();
+            } else if (count($stmt->fetchAll()) > 0) {
+                $loginStatus = True;
+            } else {
+                $loginStatus = False;
+            }
+        } else {
+            // display injected page
+            $loginStatus = True;
+        }
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,10 +57,11 @@
             Flag 1: ADLCTF{51mpl3_5ql_1nj3c710n} <br>
             Flag 2 is in the db, try to find it.
         </p>
+        <i style="color: gray; font-size: 18px; position: absolute; bottom: 3px; right: 3px;">I don't like sqlmap.</i>
     </div>
 <?php
     } else {
-        if ($loginStatus === False) { 
+        if ($loginStatus === False) {
             echo '<div class="alert alert-danger" role="alert">Login Failed! Try again!</div>';
         }
 ?>

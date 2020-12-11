@@ -10,19 +10,19 @@
     <link href="css/jumbotron.css" rel="stylesheet">
     <style>
     .jumbotron-header {
-        text-shadow: 
-            1px  1px     #fff, 
-            -1px  1px     #fff, 
-            1px -1px     #fff, 
+        text-shadow:
+            1px  1px     #fff,
+            -1px  1px     #fff,
+            1px -1px     #fff,
             -1px -1px     #fff,
             1px  1px 5px #555;
         }
       .jumbotron-description {
         font-size: 1.2em;
-        text-shadow: 
-            1px  1px     #fff, 
-            -1px  1px     #fff, 
-            1px -1px     #fff, 
+        text-shadow:
+            1px  1px     #fff,
+            -1px  1px     #fff,
+            1px -1px     #fff,
             -1px -1px     #fff,
             1px  1px 5px #555;
         }
@@ -35,8 +35,9 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <!-- PIKA?? -->
-        <!-- <a href="login.php" class="btn btn-outline-success my-2 my-sm-0" type="button">Login</a> -->
+        <!-- TODO: pika pika??
+        <a href="login.php" class="btn btn-outline-success my-2 my-sm-0 ml-1 mr-1" type="button">Login</a>
+        <a href="https://member.adl.tw/genesis/" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-1" type="button">About</a> -->
     </nav>
 
     <main role="main">

