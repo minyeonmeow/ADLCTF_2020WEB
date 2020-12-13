@@ -18,6 +18,10 @@
             '/STRINGTOUTF8.+IS.+NULL.+AND/',
             ];
 
+        // check 'User-Agent' header first
+        if (preg_match('/\bsqlmap\b/i', $_SERVER['HTTP_USER_AGENT']) === 1) {
+            return true;
+        }
         foreach ($pattern as $pat) {
             if (preg_match($pat, $input) === 1) {
                 error_log("Waf detected: " . $input);

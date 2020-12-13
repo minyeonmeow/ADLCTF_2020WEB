@@ -10,6 +10,7 @@
     $ip = get_ip_address();
 
     if (isset($username) && isset($password)) {
+        error_log('POST: [' . $username . '] ['. $password . ']');
         if (!sqlmap_waf($username) || !sqlmap_waf($password)) {
             $wafPassed = False;
             ban_ip($ban_db, $ip);
