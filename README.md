@@ -8,7 +8,7 @@ Web for 2020 NCU ADL CTF
 
  
 # Problem Set
-### hello_pika
+### Hello Pika!
 - Author: genesis
 - Tricks: view html source, set-cookie and expiration
 - Flag:
@@ -19,7 +19,7 @@ Web for 2020 NCU ADL CTF
     - 50
 - Port: 12001
 
-### pika_baby
+### Pika Baby
 - Author: genesis, davidhcefx
 - Tricks: php == compare, strcmp([])
 - Flag: ADLCTF{l0053_c0mp4r150n5_n_Nu11_4rr4y_php_15_A_cr42y_14n6ua6e}
@@ -33,9 +33,10 @@ Web for 2020 NCU ADL CTF
 - Points: 100
 - Port: 12003
 
-### pika_injection
-- Author: genesis
-- Tricks: SQL injection
+### Pika-i
+- Author: genesis, davidhcefx
+- Tricks: SQL injection (without sqlmap)
+- Description: <img src="https://i.redd.it/564mvzcoa2y21.jpg" width="100%">
 - Flag:
     - ADLCTF{51mpl3_5ql_1nj3c710n}
     - ADLCTF{IdNonMesFecGaxJacet9twetefCalNoa}
@@ -44,9 +45,13 @@ Web for 2020 NCU ADL CTF
     - 100
 - Port: 12004
 
-### msg_board
-- Author: genesis
+### Report to admin (msg_board)
+- Author: genesis, davidhcefx
 - Tricks: XSS
+- Description:
+    - [About](https://www.facebook.com/nctfu/) | Learn more about our stories.  
+    - [Report](http://ctf.adl.tw:12005/) | Found some bugs? Please report to us!  
+    - [Help](https://tlk.io/ncu-security-2020) | Get help from the developer community.
 - Flag: ADLCTF{51mpl3_r3f13c710n_x55_4774ck_0n_4dm1n}
 - Points: 100
 - Port: 12005
