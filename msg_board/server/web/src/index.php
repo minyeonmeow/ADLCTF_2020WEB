@@ -19,7 +19,7 @@ $user = $_COOKIE['USERSESSID'];
 </head>
 <body style="min-height: 100vh;">
     <div id="app" class="container">
-        <h1 class="text-center">Message Board</h1>
+        <h1 class="text-center">Report to Admin</h1>
         <message-board></message-board>
     </div>
     <script src="js/jquery-slim.min.js"></script>
