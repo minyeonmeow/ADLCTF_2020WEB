@@ -47,7 +47,7 @@ Web for 2020 NCU ADL CTF
 ### msg_board
 - Author: genesis
 - Tricks: XSS
-- Flag: ADLCTF{51mpl3_x55_4774ck}
+- Flag: ADLCTF{51mpl3_r3f13c710n_x55_4774ck_0n_4dm1n}
 - Points: 100
 - Port: 12005
 

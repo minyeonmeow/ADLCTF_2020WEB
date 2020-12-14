@@ -7,7 +7,7 @@
                 </div>
               </li>
             </ul>
-	    <div v-else>
+            <div v-else>
             </div>
         </div>
         <div class="card-footer">
@@ -48,28 +48,29 @@ module.exports = {
             return message !== null && message !== '';
         },
         sendMessage() {
-	    let textarea = document.querySelector('textarea#newMessage');
-	    const message = textarea.value;
+            let textarea = document.querySelector('textarea#newMessage');
+            const message = textarea.value;
             let that = this;
             if (this.checkMessage(message)) {
-		const data = new URLSearchParams();
-		data.append('message', message);
+    	        const data = new URLSearchParams();
+    	        data.append('message', message);
                 axios({
-		    url: '/api.php?method=send',
-		    method: 'POST',
-		    data: data
+                    url: '/api.php?method=send',
+                    method: 'POST',
+                    data: data
                 }).then(function(response) {
                     const data = response['data'];
                     if (data['status'] !== 0) {
                         that.messages.push(data['data'][0]);
-			textarea.value = '';
+                        textarea.value = '';
                     } else {
+                        alert('Error: ' + data['msg']);
                         console.log('Error: ' + data['msg']);
                     }
                 });
-		return true;
+                return true;
             } 
-	    return false;
+            return false;
         },
         getMessageColor(message) {
             if (parseInt(message['is_read']) === 1) {
