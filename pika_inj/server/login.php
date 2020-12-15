@@ -58,7 +58,10 @@
             Flag 1: ADLCTF{51mpl3_5ql_1nj3c710n} <br>
             Flag 2 is in the db, try to find it.
         </p>
-        <i style="color: gray; font-size: 18px; position: absolute; bottom: 3px; right: 3px;">I don't like sqlmap.</i>
+        <i style="color: gray; font-size: 14px; position: absolute; bottom: 4px; right: 8px; text-align: right">
+            I don't like sqlmap.<br>
+            No, for real don't use it!
+        </i>
     </div>
 <?php
     } else {

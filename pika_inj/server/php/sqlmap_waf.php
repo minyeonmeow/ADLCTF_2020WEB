@@ -16,11 +16,13 @@
             '/AND.+SELECT.+RDB\$DATABASE.+AND/',
             '/AND.+SELECT.+INFORMATION_SCHEMA\.IO_STATISTICS.+AND/',
             '/STRINGTOUTF8.+IS.+NULL.+AND/',
+            '/SUBSTR.+COALESCE.+(CAST.+TEXT.+){4,}/',
             ];
 
         // check 'User-Agent' header first
         if (preg_match('/\bsqlmap\b/i', $_SERVER['HTTP_USER_AGENT']) === 1) {
-            return true;
+            error_log("Waf detected: header contains 'sqlmap'");
+            return false;
         }
         foreach ($pattern as $pat) {
             if (preg_match($pat, $input) === 1) {
