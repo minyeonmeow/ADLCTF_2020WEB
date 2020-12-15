@@ -1,11 +1,6 @@
 <?php
 require_once("config.php");
 
-function has_script_tag($msg) {
-    if (stripos($msg, '<script>') !== false) return True;
-    return False;
-}
-
 $user = $_COOKIE['USERSESSID'];
 if (!isset($user) || empty($user)) {
     echo json_encode(['status' => 0, 'msg' => 'Who are you?', 'data' => null]);
@@ -24,9 +19,13 @@ if ($method === 'send') {
         echo json_encode(['status' => 0, 'msg' => 'Empty message!', 'data' => null]);
         die();
     }
-    if (has_script_tag($message)) {  // script tag detection (comment out if you think it's NG)
-        echo json_encode(['status' => 0, 'msg' => 'Script tag detected!', 'data' => null]);
-        die();
+
+    // filter some tags :-)))
+    foreach (['<script', '<img', '<svg'] as $tag) {
+        if (stripos($message, $tag) !== false) {
+            echo json_encode(['status' => 0, 'msg' => "${tag}> tag detected!", 'data' => null]);
+            die();
+        }
     }
 
     $sth = $conn->prepare("INSERT INTO messageboard(`session_id`, `message`) VALUES (?, ?)");

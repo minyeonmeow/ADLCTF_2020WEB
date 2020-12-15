@@ -3,8 +3,8 @@ services:
     bot:
         build: ./bot
         volumes:
-            - ./bot/src:/home/bot
-        entrypoint: python3 ./bot.py
+            - ./bot/app:/usr/src/app
+        entrypoint: python -u bot.py
         links:
             - web
     web:
@@ -23,6 +23,8 @@ services:
         volumes:
             - ./server/sql:/docker-entrypoint-initdb.d
             - persistent:/var/lib/mysql
+    browser:
+        image: selenium/standalone-chrome
 volumes:
     persistent:
 

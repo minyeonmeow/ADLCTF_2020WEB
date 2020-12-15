@@ -4,7 +4,7 @@ project_root=$PWD
 
 if [ "$1" = "up" ]
 then
-    arg="up -d --build"
+    arg="up -d"
 elif [ "$1" = "down" ]
 then
     arg="$1"

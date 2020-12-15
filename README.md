@@ -52,7 +52,7 @@ Web for 2020 NCU ADL CTF
     - [About](https://www.facebook.com/nctfu/) | Learn more about our stories.  
     - [Report](http://ctf.adl.tw:12005/) | Found some bugs? Please report to us!  
     - [Help](https://tlk.io/ncu-security-2020) | Get help from the developer community.
-- Flag: ADLCTF{51mpl3_r3f13c710n_x55_4774ck_0n_4dm1n}
+- Flag: ADLCTF{51mp1e_R3fl3c7!0n_X55_4774ck_-_0N_4dm1n}
 - Points: 100
 - Port: 12005
 
