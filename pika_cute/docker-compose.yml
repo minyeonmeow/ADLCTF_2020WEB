@@ -1,0 +1,10 @@
+version: "3"
+services:
+    pika_cute:
+        container_name: pika_cute
+        build: .
+        ports: 
+            - "12003:80"
+        volumes:
+            - ./server:/var/www/html/
+            - ./F14G:/F14G:ro
