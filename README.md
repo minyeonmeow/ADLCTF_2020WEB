@@ -26,10 +26,10 @@ Web for 2020 NCU ADL CTF
 - Points: 100
 - Port: 12002
 
-### just_pika
-- Author: genesis
-- Tricks: php header change location, use curl to get index.php
-- Flag: ADLCTF{br0w53r_d0_m4ny_7h1n65}
+### Cute pika
+- Author: peanut0203
+- Tricks: LFI, cookie unserialize, upload webshell
+- Flag: ADLCTF{D0n7_mAk3_uR_SrC_c0d3_4cCeSs1B1e}
 - Points: 100
 - Port: 12003
 
