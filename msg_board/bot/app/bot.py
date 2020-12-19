@@ -17,8 +17,9 @@ def main(driver):
     while True :
         time.sleep(5)
         try:
-            driver.get('about:blank')  # clear all alert box in case there is any
+            driver.get('about:blank')  # clear all alert boxes in case there are any
             driver.get('http://web/a08efb523c7d8a99b392cd177392080a08b225c5.php')
+            print('Reading: ', driver.page_source)
         except WebDriverException:
             header = 'Traceback (most recent call last):\n'
             print(header + ''.join(traceback.format_stack()[:-1])
