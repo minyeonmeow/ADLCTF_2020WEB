@@ -5,18 +5,19 @@
     function sqlmap_waf($input) {
         // minimize false positive to avoid complaints XD
         $pattern = [
-            '/CVAR.+NULL.+MSysAccessObjects.+NULL.+AND/',
-            '/TDESENCRYPT.+NULL.+NULL.+NULL/',
-            '/%SQLUPPER.+NULL.+IS.+NULL/',
-            '/MD5.+NULL.+NULL.+IS.+NULL/',
-            '/NULL.+SETEQ.+NULL.+NULL/',
-            '/CHR.+CHR.+CHR.+CHR.+SYSIBM\.SYSDUMMY1.+AND/',
-            '/NULLIF.+USER.+SESSION_USER.+SYSIBM\.SYSDUMMY1.+NULL/',
-            '/NULLIFZERO.+hashcode.+NULL.+NULL/',
-            '/AND.+SELECT.+RDB\$DATABASE.+AND/',
-            '/AND.+SELECT.+INFORMATION_SCHEMA\.IO_STATISTICS.+AND/',
-            '/STRINGTOUTF8.+IS.+NULL.+AND/',
-            '/SUBSTR.+COALESCE.+(CAST.+TEXT.+){4,}/',
+            '/CVAR.+NULL.+MSysAccessObjects.+NULL.+AND/i',
+            '/TDESENCRYPT.+NULL.+NULL.+NULL/i',
+            '/%SQLUPPER.+NULL.+IS.+NULL/i',
+            '/MD5.+NULL.+NULL.+IS.+NULL/i',
+            '/NULL.+SETEQ.+NULL.+NULL/i',
+            '/CHR.+CHR.+CHR.+CHR.+SYSIBM\.SYSDUMMY1.+AND/i',
+            '/NULLIF.+USER.+SESSION_USER.+SYSIBM\.SYSDUMMY1.+NULL/i',
+            '/NULLIFZERO.+hashcode.+NULL.+NULL/i',
+            '/AND.+SELECT.+RDB\$DATABASE.+AND/i',
+            '/AND.+SELECT.+INFORMATION_SCHEMA\.IO_STATISTICS.+AND/i',
+            '/STRINGTOUTF8.+IS.+NULL.+AND/i',
+            '/SUBSTR.+COALESCE.+(CAST.+TEXT.+){4,}/i',
+            '/CASE.+WHEN.+SUBSTR.+COALESCE.+WHERE.+type=.+THEN.+LIKE.+UPPER.+HEX.+RANDOMBLOB.+\/2.+ELSE.+END/i',
             ];
 
         // check 'User-Agent' header first
