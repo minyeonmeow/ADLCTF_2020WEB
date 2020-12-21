@@ -1,10 +1,15 @@
 version: "3"
 services:
-    pika_cute:
+    web:
         container_name: pika_cute
-        build: .
+        image: php:7.2-apache
         ports: 
             - "12003:80"
         volumes:
             - ./server:/var/www/html/
             - ./F14G:/F14G:ro
+        deploy:
+            resources:
+                limits:
+                    memory: 1g
+

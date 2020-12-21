@@ -7,3 +7,7 @@ services:
             - "12002:80"
         volumes:
             - ./server:/var/www/html/
+        deploy:
+            resources:
+                limits:
+                    memory: 1g
