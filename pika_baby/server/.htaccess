@@ -1,0 +1,5 @@
+# ban ip temporarily (5 minutes) if needed
+RewriteEngine on
+RewriteCond %{REMOTE_ADDR} =0.0.0.0
+RewriteCond %{REQUEST_URI} !/ba96114b_opps.html$  [NC]
+RewriteRule .* "/ba96114b_opps.html"
