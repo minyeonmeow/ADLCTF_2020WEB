@@ -1,23 +1,49 @@
 <?php
-    /* SQLmap waf written by davidhcefx, 2020.12.10 */
+    /*
+     * SQLmap WAF written by davidhcefx, 2020.12.10
+     * Can detect:
+     *   - sqlmap with --dbms and --technique unspecified
+     *   - sqlmap with --dbms=sqlite and --technique=B
+     *   - sqlmap with --dbms=sqlite and --technique=T
+     *   - resistant to basic tampering such as randomcase or space2comment
+     */
 
     // Return true if pass firewall, otherwise false.
     function sqlmap_waf($input) {
-        // minimize false positive to avoid complaints XD
+        // minimize false positive as much as possible to avoid complaints XD
         $pattern = [
-            '/CVAR.+NULL.+MSysAccessObjects.+NULL.+AND/i',
-            '/TDESENCRYPT.+NULL.+NULL.+NULL/i',
-            '/%SQLUPPER.+NULL.+IS.+NULL/i',
-            '/MD5.+NULL.+NULL.+IS.+NULL/i',
-            '/NULL.+SETEQ.+NULL.+NULL/i',
-            '/CHR.+CHR.+CHR.+CHR.+SYSIBM\.SYSDUMMY1.+AND/i',
-            '/NULLIF.+USER.+SESSION_USER.+SYSIBM\.SYSDUMMY1.+NULL/i',
-            '/NULLIFZERO.+hashcode.+NULL.+NULL/i',
-            '/AND.+SELECT.+RDB\$DATABASE.+AND/i',
-            '/AND.+SELECT.+INFORMATION_SCHEMA\.IO_STATISTICS.+AND/i',
-            '/STRINGTOUTF8.+IS.+NULL.+AND/i',
-            '/SUBSTR.+COALESCE.+(CAST.+TEXT.+){4,}/i',
-            '/CASE.+WHEN.+SUBSTR.+COALESCE.+WHERE.+type=.+THEN.+LIKE.+UPPER.+HEX.+RANDOMBLOB.+\/2.+ELSE.+END/i',
+            // AND (SELECT CVAR(NULL) FROM MSysAccessObjects) IS NULL AND 'bAHR'='bAHR
+            // AND (SELECT TDESENCRYPT(NULL,NULL)) IS NULL AND 'kTWJ'='kTWJ
+            // AND (SELECT %SQLUPPER NULL) IS NULL AND 'murm'='murm
+            // AND (SELECT MD5(NULL~NULL)) IS NULL AND 'LRuc'='LRuc
+            // AND (SELECT (NULL SETEQ NULL)) IS NULL AND 'fPyS'='fPyS
+            // AND (SELECT CHR(109)||CHR(73)||CHR(67)||CHR(81) FROM SYSIBM.SYSDUMMY1)='mICQ' AND 'SPxE'='SPxE
+            // AND (SELECT NULLIF(USER,SESSION_USER) FROM SYSIBM.SYSDUMMY1) IS NULL AND 'EpdX'='EpdX
+            // AND (SELECT NULLIFZERO(hashcode(NULL))) IS NULL AND 'AeTL'='AeTL
+            // AND (SELECT 'WnJI' FROM INFORMATION_SCHEMA.IO_STATISTICS)='WnJI' AND 'cIOT'='cIOT
+            // AND (SELECT STRINGTOUTF8(NULL)) IS NULL AND 'gkDZ'='gkDZ
+            // AND (SELECT ASCII_CHAR(256) FROM SYSTEM.ONEROW) IS NULL AND 'usre'='usre
+            // AND (SELECT INSTR2(NULL,NULL) FROM DUAL) IS NULL AND 'dDDa'='dDDa
+            '/AND.+CVAR\(NULL\).+FROM.+MSysAccessObjects.+IS.+NULL.+AND/',
+            '/AND.+TDESENCRYPT\(NULL,NULL\).+IS.+NULL.+AND/',
+            '/AND.+%SQLUPPER[^)]+NULL.+IS.+NULL.+AND.+=/',
+            '/AND.+MD5\(NULL~NULL\).+IS.+NULL.+AND.+=/',
+            '/AND.+\(NULL[^)]+SETEQ[^)]+NULL\).+IS.+NULL.+AND.+=/',
+            '/AND.+CHR.+CHR.+CHR.+CHR.+FROM.+SYSIBM\.SYSDUMMY1.+AND/',
+            '/AND.+NULLIF\(USER,SESSION_USER\).+FROM.+SYSIBM\.SYSDUMMY1.+IS.+NULL.+AND/',
+            '/AND.+NULLIFZERO\(hashcode\(NULL\).+IS.+NULL.+AND.+=/',
+            '/AND.+SELECT.+INFORMATION_SCHEMA\.IO_STATISTICS\)=.+AND.+=/',
+            '/AND.+STRINGTOUTF8\(NULL\).+IS.+NULL.+AND.+=/',
+            '/AND.+ASCII_CHAR\(256\).+FROM.+SYSTEM.ONEROW.+IS.+NULL.+AND/',
+            '/AND.+INSTR2\(NULL,NULL\).+FROM.+DUAL.+IS.+NULL.+AND.+=/',
+
+            // Boolean-based (sqlite)
+            // OR NOT SUBSTR((SELECT COALESCE(CAST(tbl_name AS TEXT),CAST(X'20' AS TEXT)) FROM sqlite_master WHERE type=CAST(X'7461626c65' AS TEXT) LIMIT 0,1),1,1)>CAST(X'41' AS TEXT)-- PvTJ
+            '/NOT.+COALESCE.+(CAST.+AS.+TEXT.+){4,}/',
+
+            // Time-based (sqlite)
+            // OR 3112=(CASE WHEN (SUBSTR((SELECT COALESCE(tbl_name,' ') FROM sqlite_master WHERE type='table' LIMIT 2,1),1,1)>'f') THEN (LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(300000000/2))))) ELSE 3112 END)-- rHtY
+            '/CASE.+WHEN.+COALESCE.+WHERE.+type=.+THEN.+LIKE\(.ABCDEFG.,UPPER\(HEX\(RANDOMBLOB.+\/2.+ELSE.+END/',
             ];
 
         // check 'User-Agent' header first
@@ -26,6 +52,7 @@
             return false;
         }
         foreach ($pattern as $pat) {
+            $pat = $pat . 'i';  // case-insensitive flag
             if (preg_match($pat, $input) === 1) {
                 error_log("Waf detected: " . $input);
                 return false;
