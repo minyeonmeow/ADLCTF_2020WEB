@@ -40,6 +40,8 @@ Web for 2020 NCU ADL CTF
 - Flag:
     - ADLCTF{51mpl3_5ql_1nj3c710n}
     - ADLCTF{IdNonMesFecGaxJacet9twetefCalNoa}
+- Caution:
+    - 如果沒做限制，time-based inj. 會讓 memory 用盡，導致 out-of-memory 災難。
 - Points: 
     - 50
     - 100
@@ -55,4 +57,3 @@ Web for 2020 NCU ADL CTF
 - Flag: ADLCTF{51mp1e_R3fl3c7!0n_X55_4774ck_-_0N_4dm1n}
 - Points: 100
 - Port: 12005
-
